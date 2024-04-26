@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="compoundInterest.js"></script>
+</head>
+<body>
+    Deposit: $<input type="number" id="depositAmountElement" value="1000"><br>
+    Interest Rate: <input type="number" id="interestRateElement" value="1.75"><br>
+    Number of Years: <input type="number" id="numberOfYearsElement" value="5"><br>
+    <button id="calc">Calculate</button><hr>
+    Compounded Interest Balance: <input type="number" id="outputElement" readonly><br>
+    Interest Rate: $<input type="number" id="interestOutputElement" readonly>
+</body>
+<script>
+    function doCalc(){
+        const deposit = Number(depositAmountElement.value);
+        const interestRate = Number(interestRateElement.value) / 100;
+        const numberOfYears = Number(numberOfYearsElement.value);
+        
+        const result = getPayment(deposit, interestRate, numberOfYears);
+        outputElement.value = result
+
+        const totalrate=getTotalInterest(deposit, result)
+        interestOutputElement.value = totalrate
+    }
+    calc.onclick = doCalc;
+</script>
+</html>

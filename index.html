@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Calculators</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="./mortgage.js"></script>
+</head>
+<body>
+
+      Pinciple:<input type="number" id="principleAmountElement" value="53000">
+      Rate:<input type="number" id="percentageRateElement" value="7.625"><br>
+      Years:<input type="number" id="numberOfYearsElement" value="15"><br>
+      <button id="calc">Calculate</button>
+      <hr>
+      Monthly Payment: $<input type="number" id="outputElement" readonly>
+      Total Paid: $<input type="number" id="totalElement" readonly>
+      Interest Paid: $<input type="number" id="interestPaidElement" readonly>
+      
+</body>
+    <script>
+        function doCalc(){
+            debugger
+            const principleAmount = Number(principleAmountElement.value);
+            const percentageRate = Number(percentageRateElement.value) / 100;
+            const numberOfMonths = Number(numberOfYearsElement.value) * 12;
+            const result = getPayment(principleAmount, percentageRate, numberOfMonths);
+            outputElement.value = result.toFixed(2);
+
+            const totalPaid = result * numberOfMonths;
+            const InterestPaid = totalPaid - principleAmount;
+
+            totalElement.value = totalPaid.toFixed(2);
+            interestPaidElement.value = totalPaid - principleAmount;
+    }
+
+        calc.onclick = doCalc;
+       
+    </script>
+</html>
