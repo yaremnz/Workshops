@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./scripts/hiking.js"></script>
+</head>
+<body>
+    <h1>Hicking</h1>
+    <select id="hickesSelect">
+        <option value="">Selecct a Hike</option>
+    </select>
+    <div id="details">?</div>
+    <img id="scenicImageElement">
+    <img id="trailMapImageElement">
+</body>
+<script>
+for(hike of hikes){
+    hikesSelect.innerHTML += `<option value="{$hike.id}">${hike.name}</option>`
+}
+const path = "./images/"
+hikesSelect.onchange = e =>{
+    for(hike of hikes){
+        if(hike.id == hikesSelect.value){
+            details = hikedescription;
+            trailMapImageElement = path+ hike.trailMapImage;
+            scenicImageElement = hike.scenicImage;
+
+            break;
+        }
+    }
+}
+</script>
+</html>
